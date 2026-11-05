@@ -24,7 +24,7 @@ function buildChrome() {
   if (nav) {
     nav.className = "nav";
     nav.innerHTML = `<div class="wrap"><a class="brand" href="index.html"><span class="logo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></span>FashionGen AI</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.2a2.4 2.4 0 0 1 2.4 2.4c0 1.3-1 2.2-2.1 2.4l-.3.4" stroke-width="1.8"/><path d="M3.5 16.5 12 9.8l8.5 6.7c.6.5.3 1.5-.5 1.5H4c-.8 0-1.1-1-.5-1.5z" stroke-width="1.8" fill="rgba(255,255,255,0.18)"/><path d="M12 12.2q0 1.8 1.8 1.8q-1.8 0-1.8 1.8q0-1.8-1.8-1.8q1.8 0 1.8-1.8z" fill="#fff" stroke="none"/></svg></span>FashionGen AI</a>
       <button class="burger" aria-label="Open menu" aria-expanded="false">☰</button>
       <nav class="links" aria-label="Main"></nav><span class="pill" id="api-pill"><i class="dot"></i><span>Checking backend…</span></span></div>`;
     const links = nav.querySelector(".links");
