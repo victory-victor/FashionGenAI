@@ -36,7 +36,9 @@ async def unhandled(request: Request, exc: Exception):
 
 
 # Root route: redirect to the UI at /app/ or API docs if frontend not mounted
-_frontend = Path(__file__).resolve().parent.parent / "frontend"
+_frontend = Path(__file__).resolve().parent / "frontend"
+if not _frontend.is_dir():
+    _frontend = Path(__file__).resolve().parent.parent / "frontend"
 
 @app.get("/", include_in_schema=False)
 def root():

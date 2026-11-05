@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css"><title>Model comparison · FashionGen AI</title></head><body>
+<div id="nav"></div>
+<main class="wrap" style="padding-top:2.2rem">
+  <h1 style="font-size:2.1rem">Conditional GAN vs Variational Autoencoder</h1>
+  <p class="sub">Pick a category. Both models receive the same class label and the same random seed, and both outputs are scored by CLIP.</p>
+  <div class="card" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:end">
+    <div style="min-width:200px"><label for="cmp-cat">Category</label><select id="cmp-cat"></select></div>
+    <div style="min-width:120px"><label for="cmp-count">Images</label><select id="cmp-count"></select></div>
+    <button class="btn" id="cmp-btn">Compare models</button>
+  </div>
+  <div class="status" id="status" role="status"></div>
+  <div class="compare-cols" style="margin-top:1.4rem">
+    <div class="card"><h3>Conditional GAN <span class="badge">sharp, can be unstable</span></h3><div id="cgan-out" class="gallery" style="grid-template-columns:repeat(auto-fill,minmax(110px,1fr))"></div><div id="cgan-sum" class="note"></div></div>
+    <div class="card"><h3>Conditional VAE <span class="badge blue">stable, blurrier</span></h3><div id="vae-out" class="gallery" style="grid-template-columns:repeat(auto-fill,minmax(110px,1fr))"></div><div id="vae-sum" class="note"></div></div>
+  </div>
+  <section class="block"><h2>Differences between the two models</h2>
+    <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Conditional GAN</th><th>Conditional VAE</th></tr></thead><tbody>
+      <tr><td>Idea</td><td>Generator and discriminator compete (adversarial game).</td><td>Encoder compresses to a latent distribution; decoder reconstructs.</td></tr>
+      <tr><td>Training signal</td><td>Discriminator’s real/fake judgement.</td><td>Reconstruction loss + KL divergence (ELBO).</td></tr>
+      <tr><td>Typical image quality</td><td>Sharper details.</td><td>Smoother, blurrier (pixel-wise averaging).</td></tr>
+      <tr><td>Training stability</td><td>Can oscillate or mode-collapse.</td><td>Stable and easy to monitor.</td></tr>
+      <tr><td>Diversity</td><td>Can miss some modes.</td><td>Covers the data distribution more evenly.</td></tr>
+      <tr><td>Conditioning here</td><td>Label embedding joined to noise; label also given to discriminator.</td><td>One-hot label joined to the encoder input and decoder input.</td></tr>
+    </tbody></table></div>
+    <p class="note">These rows describe the general behaviour of the two model families. The images and CLIP numbers above come from this project’s own trained models, so judge them yourself.</p>
+  </section>
+  <section class="block"><h2>Architecture</h2><div class="grid g2" style="margin-top:1rem">
+    <div class="card"><h3>cGAN</h3><div class="pre" id="arch-gan">Loading…</div></div>
+    <div class="card"><h3>CVAE</h3><div class="pre" id="arch-vae">Loading…</div></div></div></section>
+</main>
+<div id="footer"></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/main.js"></script><script src="js/dashboard.js"></script><script>document.addEventListener("DOMContentLoaded", initComparison);</script></body></html>

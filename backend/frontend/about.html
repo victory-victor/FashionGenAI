@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css"><title>About & Responsible AI · FashionGen AI</title></head><body>
+<div id="nav"></div>
+<main class="wrap prose" style="padding-top:2.2rem">
+  <h1 style="font-size:2.1rem">About & Responsible AI</h1>
+  <p class="sub">What the project does, how each model works, and where it falls short.</p>
+  <div class="grid g2">
+  <div class="card"><h2>Project objectives</h2><ul><li>Bridge natural language and a class-conditional image generator.</li><li>Compare a GAN and a VAE trained on the same data.</li><li>Evaluate outputs with real, reproducible measurements.</li></ul></div>
+  <div class="card"><h2>Generative AI basics</h2><p>Discriminative models learn <code>p(y|x)</code>, the label given an image. Generative models learn the data distribution <code>p(x)</code>, or <code>p(x|y)</code> when conditioned on a label, so they can sample new images. Lifecycle: define the problem, prepare data, choose and train a model, evaluate, deploy, monitor.</p></div>
+  <div class="card"><h2>GAN, generator and discriminator</h2><p>The generator maps random noise plus a class label to an image. The discriminator sees an image plus a label and predicts real or fake. They train against each other until generated images look real. Conditioning means both networks receive the label, so “ankle boot” really asks for an ankle boot.</p></div>
+  <div class="card"><h2>Variational Autoencoder</h2><p>An encoder maps an image to a Gaussian in latent space; a decoder rebuilds the image from a sample. The loss is reconstruction error plus a KL term that keeps the latent space smooth. Sampling the latent space produces new images, usually blurrier than a GAN’s.</p></div>
+  <div class="card"><h2>LLM integration</h2><p>A prompt asks Gemini to return JSON (<code>category</code>, <code>class_id</code>, <code>count</code>). We compare zero-shot (instructions only) and few-shot (instructions plus examples) prompting via <code>/api/parse-prompt</code>. The JSON is validated with Pydantic before use. Without an API key a rule-based parser is used and the response says so.</p></div>
+  <div class="card"><h2>BERT and CLIP</h2><p>DistilBERT (a BERT-family encoder) embeds the request and class descriptions; cosine similarity gives an independent cross-check of the category, without fine-tuning. CLIP embeds images and text in one space; we report image–text cosine similarity and CLIP’s top-1 label.</p></div>
+  <div class="card"><h2>Fashion-MNIST</h2><p>70,000 grayscale 28×28 images (60,000 train, 10,000 test) in 10 classes, by Zalando Research. Class IDs: 0 T-shirt/top, 1 Trouser, 2 Pullover, 3 Dress, 4 Coat, 5 Sandal, 6 Shirt, 7 Sneaker, 8 Bag, 9 Ankle boot.</p></div>
+  <div class="card"><h2>Licences</h2><ul><li>Fashion-MNIST: MIT licence, © Zalando SE.</li><li>CLIP (OpenAI) and DistilBERT: check each model card on Hugging Face (CLIP: MIT; DistilBERT: Apache-2.0).</li><li>Trained cGAN/VAE weights: created in this project from MIT-licensed data; project code licence is chosen by the authors.</li><li>Gemini API: Google’s terms of service apply.</li></ul></div>
+  </div>
+  <h2 style="margin-top:2.2rem">Limitations and responsible use</h2>
+  <div class="grid g2">
+  <div class="card"><h3>Dataset limitations</h3><ul><li>Tiny 28×28 grayscale images; no colour, texture or fine detail.</li><li>Only 10 coarse classes, centred product shots from one retailer: limited style and cultural diversity.</li><li>“Bag”, “Shirt”, “Pullover” and “Coat” overlap visually, which makes them harder classes.</li></ul></div>
+  <div class="card"><h3>Model limitations</h3><ul><li>The GAN can show mode collapse or artefacts; the VAE is blurry.</li><li>Models only know the 10 classes: unknown items are rejected by the parser, not generated.</li><li>Small training budget (see the Training page for the real epoch count).</li></ul></div>
+  <div class="card"><h3>Limits of CLIP evaluation</h3><ul><li>CLIP was not trained for low-resolution grayscale images, so scores are low and noisy.</li><li>Similarity is not accuracy. A high score does not prove the image is a correct item.</li><li>Prompt wording (“a photo of a handbag”) changes the score.</li></ul></div>
+  <div class="card"><h3>Ethical considerations</h3><ul><li>Generated images are synthetic and must not be presented as real product photos.</li><li>Bias analysis is limited to class-wise performance; the dataset has no people, but it reflects one retailer’s catalogue.</li><li>The LLM only receives the user’s request text. API keys stay on the server and are never sent to the browser.</li></ul></div>
+  </div>
+  <p class="note">Responsible AI disclaimer: this is an educational prototype. Outputs are experimental, scores are indicative only, and the system should not be used for commercial decisions without further validation.</p>
+</main>
+<div id="footer"></div>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/main.js"></script></body></html>
