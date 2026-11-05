@@ -52,8 +52,13 @@ ENABLE_BERT = os.getenv("ENABLE_BERT", "true").lower() == "true"
 TORCH_THREADS = int(os.getenv("TORCH_THREADS", "2"))
 
 # --- Web ---------------------------------------------------------------------
-FRONTEND_ORIGINS = [o.strip() for o in os.getenv(
-    "FRONTEND_ORIGINS",
-    "http://localhost:5500,http://127.0.0.1:5500,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8080",
-).split(",") if o.strip()]
+_raw_origins = os.getenv("FRONTEND_ORIGINS", "*")
+if _raw_origins.strip() == "*":
+    FRONTEND_ORIGINS = ["*"]
+else:
+    FRONTEND_ORIGINS = [o.strip() for o in _raw_origins.split(",") if o.strip()]
+    # Ensure localhost and user's vercel app are always permitted
+    for o in ("https://fashiongenai-frontend.vercel.app", "http://localhost:5500", "http://127.0.0.1:5500"):
+        if o not in FRONTEND_ORIGINS:
+            FRONTEND_ORIGINS.append(o)
 SERVE_FRONTEND = os.getenv("SERVE_FRONTEND", "true").lower() == "true"

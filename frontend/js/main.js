@@ -35,23 +35,34 @@ function buildChrome() {
   const foot = document.getElementById("footer");
   if (foot) foot.innerHTML = `<footer><div class="wrap">FashionGen AI · P14 Text-to-Conditional-GAN Bridge · College Generative AI mini-project.
     Fashion-MNIST © Zalando Research (MIT licence). Generated images are 28×28 research samples, not product photos.</div></footer>`;
-  API.health().then(h => {
+  function checkHealth(attempt = 1) {
     const pill = document.getElementById("api-pill"); if (!pill) return;
-    pill.querySelector(".dot").className = "dot " + (h.cgan_ready ? "ok" : "bad");
-    pill.querySelector("span").textContent = h.cgan_ready ? "Backend online" : "Backend online · model not trained";
-  }).catch(() => {
-    const pill = document.getElementById("api-pill"); if (!pill) return;
-    pill.querySelector(".dot").className = "dot bad"; pill.querySelector("span").textContent = "Backend offline";
-  });
+    API.health().then(h => {
+      pill.querySelector(".dot").className = "dot " + (h.cgan_ready ? "ok" : "bad");
+      pill.querySelector("span").textContent = h.cgan_ready ? "Backend online" : "Backend online · model not trained";
+      loadHomeGallery();
+    }).catch(() => {
+      if (attempt < 4) {
+        pill.querySelector(".dot").className = "dot";
+        pill.querySelector("span").textContent = `Waking up server (${attempt}/3)…`;
+        setTimeout(() => checkHealth(attempt + 1), 4000);
+      } else {
+        pill.querySelector(".dot").className = "dot bad";
+        pill.querySelector("span").textContent = "Backend offline";
+      }
+    });
+  }
+  checkHealth();
 }
 document.addEventListener("DOMContentLoaded", buildChrome);
 
 // ---- home page: example gallery built from REAL cGAN output ----
 async function loadHomeGallery() {
   const box = document.getElementById("home-gallery"); if (!box) return;
+  if (box.querySelector("figure")) return; // already loaded
   try {
     const { samples } = await API.samples();
     box.replaceChildren(...samples.map(s => el("figure", {}, el("img", { src: s.data_url, alt: `cGAN generated ${s.category}`, loading: "lazy" }), el("figcaption", {}, s.category))));
-  } catch (e) { box.replaceChildren(el("div", { class: "empty", style: "grid-column:1/-1" }, "Example images appear once the backend is running with trained weights. " + e.message)); }
+  } catch (e) { box.replaceChildren(el("div", { class: "empty", style: "grid-column:1/-1" }, "Example images load once backend finishes waking up…")); }
 }
 document.addEventListener("DOMContentLoaded", loadHomeGallery);

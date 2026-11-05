@@ -8,5 +8,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN chmod -R 777 /app
 
-ENV PORT=8000 HF_HOME=/tmp/hf TRANSFORMERS_CACHE=/tmp/hf
+ENV PORT=8000 HF_HOME=/tmp/hf
 CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT}"]
