@@ -1,0 +1,24 @@
+# Render Blueprint. Create a "Blueprint" from this repo, then fill the secret values in the dashboard.
+services:
+  - type: web
+    name: fashiongen-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: FRONTEND_ORIGINS
+        sync: false          # e.g. https://fashiongen.netlify.app
+      - key: GEMINI_API_KEY
+        sync: false          # secret, optional (rule-based parser is used without it)
+      - key: SERVE_FRONTEND
+        value: "true"
+      - key: ENABLE_CLIP
+        value: "true"        # needs ~1.5 GB RAM; set "false" on a 512 MB free instance
+      - key: ENABLE_BERT
+        value: "true"
+      - key: TORCH_THREADS
+        value: "1"

@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+.pytest_cache/
+.vscode/
+*.log
+.DS_Store
+backend/data/
+backend/outputs/generated/*
+!backend/outputs/generated/.gitkeep
+# Trained weights, metrics and sample grids ARE committed so the deployed server can load them.

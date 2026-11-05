@@ -1,0 +1,469 @@
+{
+  "generated_at": "2026-11-05T09:59:11.931926+00:00",
+  "seed": 1234,
+  "clip_model": "openai/clip-vit-base-patch32",
+  "note": "CLIP similarity measures image-text agreement, not verified classification accuracy.",
+  "prompt_experiment": [
+    {
+      "prompt": "Show me four ankle boots",
+      "requested_category": "Ankle boot",
+      "generated_category": "Ankle boot",
+      "parser_source": "rule-based",
+      "requested_count": 4,
+      "generated_count": 4,
+      "cgan": {
+        "mean_similarity": 0.2712,
+        "mean_class_match_prob": 0.5624,
+        "top1_agreement": 0.75,
+        "n": 4
+      },
+      "vae": {
+        "mean_similarity": 0.2945,
+        "mean_class_match_prob": 0.7953,
+        "top1_agreement": 1.0,
+        "n": 4
+      },
+      "cgan_generation_ms": 44.3,
+      "vae_generation_ms": 44.9,
+      "total_processing_ms": 2673.1
+    },
+    {
+      "prompt": "Generate three sneakers",
+      "requested_category": "Sneaker",
+      "generated_category": "Sneaker",
+      "parser_source": "rule-based",
+      "requested_count": 3,
+      "generated_count": 3,
+      "cgan": {
+        "mean_similarity": 0.2753,
+        "mean_class_match_prob": 0.8142,
+        "top1_agreement": 1.0,
+        "n": 3
+      },
+      "vae": {
+        "mean_similarity": 0.2938,
+        "mean_class_match_prob": 0.9246,
+        "top1_agreement": 1.0,
+        "n": 3
+      },
+      "cgan_generation_ms": 6.4,
+      "vae_generation_ms": 4.9,
+      "total_processing_ms": 1149.6
+    },
+    {
+      "prompt": "Create five handbags",
+      "requested_category": "Bag",
+      "generated_category": "Bag",
+      "parser_source": "rule-based",
+      "requested_count": 5,
+      "generated_count": 5,
+      "cgan": {
+        "mean_similarity": 0.2457,
+        "mean_class_match_prob": 0.3786,
+        "top1_agreement": 0.6,
+        "n": 5
+      },
+      "vae": {
+        "mean_similarity": 0.2775,
+        "mean_class_match_prob": 0.7215,
+        "top1_agreement": 0.8,
+        "n": 5
+      },
+      "cgan_generation_ms": 7.0,
+      "vae_generation_ms": 3.4,
+      "total_processing_ms": 1252.8
+    },
+    {
+      "prompt": "Show me two dresses",
+      "requested_category": "Dress",
+      "generated_category": "Dress",
+      "parser_source": "rule-based",
+      "requested_count": 2,
+      "generated_count": 2,
+      "cgan": {
+        "mean_similarity": 0.236,
+        "mean_class_match_prob": 0.2404,
+        "top1_agreement": 0.5,
+        "n": 2
+      },
+      "vae": {
+        "mean_similarity": 0.2697,
+        "mean_class_match_prob": 0.4658,
+        "top1_agreement": 1.0,
+        "n": 2
+      },
+      "cgan_generation_ms": 7.8,
+      "vae_generation_ms": 4.3,
+      "total_processing_ms": 873.9
+    },
+    {
+      "prompt": "Make four t-shirts",
+      "requested_category": "T-shirt/top",
+      "generated_category": "T-shirt/top",
+      "parser_source": "rule-based",
+      "requested_count": 4,
+      "generated_count": 4,
+      "cgan": {
+        "mean_similarity": 0.25,
+        "mean_class_match_prob": 0.1558,
+        "top1_agreement": 0.25,
+        "n": 4
+      },
+      "vae": {
+        "mean_similarity": 0.2824,
+        "mean_class_match_prob": 0.2842,
+        "top1_agreement": 0.5,
+        "n": 4
+      },
+      "cgan_generation_ms": 2.2,
+      "vae_generation_ms": 5.0,
+      "total_processing_ms": 1271.7
+    },
+    {
+      "prompt": "I need three coats",
+      "requested_category": "Coat",
+      "generated_category": "Coat",
+      "parser_source": "rule-based",
+      "requested_count": 3,
+      "generated_count": 3,
+      "cgan": {
+        "mean_similarity": 0.2635,
+        "mean_class_match_prob": 0.0472,
+        "top1_agreement": 0.0,
+        "n": 3
+      },
+      "vae": {
+        "mean_similarity": 0.2963,
+        "mean_class_match_prob": 0.3266,
+        "top1_agreement": 0.3333,
+        "n": 3
+      },
+      "cgan_generation_ms": 3.4,
+      "vae_generation_ms": 3.8,
+      "total_processing_ms": 935.0
+    },
+    {
+      "prompt": "Generate two trousers",
+      "requested_category": "Trouser",
+      "generated_category": "Trouser",
+      "parser_source": "rule-based",
+      "requested_count": 2,
+      "generated_count": 2,
+      "cgan": {
+        "mean_similarity": 0.2944,
+        "mean_class_match_prob": 0.9085,
+        "top1_agreement": 1.0,
+        "n": 2
+      },
+      "vae": {
+        "mean_similarity": 0.2901,
+        "mean_class_match_prob": 0.8397,
+        "top1_agreement": 1.0,
+        "n": 2
+      },
+      "cgan_generation_ms": 1.7,
+      "vae_generation_ms": 5.6,
+      "total_processing_ms": 768.2
+    },
+    {
+      "prompt": "Show me four pullovers",
+      "requested_category": "Pullover",
+      "generated_category": "Pullover",
+      "parser_source": "rule-based",
+      "requested_count": 4,
+      "generated_count": 4,
+      "cgan": {
+        "mean_similarity": 0.2883,
+        "mean_class_match_prob": 0.7153,
+        "top1_agreement": 0.75,
+        "n": 4
+      },
+      "vae": {
+        "mean_similarity": 0.31,
+        "mean_class_match_prob": 0.8034,
+        "top1_agreement": 0.75,
+        "n": 4
+      },
+      "cgan_generation_ms": 1.8,
+      "vae_generation_ms": 3.3,
+      "total_processing_ms": 953.7
+    },
+    {
+      "prompt": "Create three sandals",
+      "requested_category": "Sandal",
+      "generated_category": "Sandal",
+      "parser_source": "rule-based",
+      "requested_count": 3,
+      "generated_count": 3,
+      "cgan": {
+        "mean_similarity": 0.2318,
+        "mean_class_match_prob": 0.2413,
+        "top1_agreement": 0.3333,
+        "n": 3
+      },
+      "vae": {
+        "mean_similarity": 0.2617,
+        "mean_class_match_prob": 0.1544,
+        "top1_agreement": 0.0,
+        "n": 3
+      },
+      "cgan_generation_ms": 2.5,
+      "vae_generation_ms": 3.8,
+      "total_processing_ms": 1031.9
+    },
+    {
+      "prompt": "Show me two shirts",
+      "requested_category": "Shirt",
+      "generated_category": "Shirt",
+      "parser_source": "rule-based",
+      "requested_count": 2,
+      "generated_count": 2,
+      "cgan": {
+        "mean_similarity": 0.2429,
+        "mean_class_match_prob": 0.0693,
+        "top1_agreement": 0.0,
+        "n": 2
+      },
+      "vae": {
+        "mean_similarity": 0.2589,
+        "mean_class_match_prob": 0.0335,
+        "top1_agreement": 0.0,
+        "n": 2
+      },
+      "cgan_generation_ms": 2.9,
+      "vae_generation_ms": 3.3,
+      "total_processing_ms": 688.4
+    }
+  ],
+  "classwise": [
+    {
+      "class_id": 0,
+      "category": "T-shirt/top",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2643,
+        "mean_class_match_prob": 0.2652,
+        "top1_agreement": 0.4375,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2787,
+        "mean_class_match_prob": 0.3117,
+        "top1_agreement": 0.4375,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.47,
+      "vae_ms_per_image": 0.6
+    },
+    {
+      "class_id": 1,
+      "category": "Trouser",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2848,
+        "mean_class_match_prob": 0.8456,
+        "top1_agreement": 1.0,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2917,
+        "mean_class_match_prob": 0.8476,
+        "top1_agreement": 1.0,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.26,
+      "vae_ms_per_image": 0.44
+    },
+    {
+      "class_id": 2,
+      "category": "Pullover",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.3101,
+        "mean_class_match_prob": 0.9115,
+        "top1_agreement": 1.0,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.3057,
+        "mean_class_match_prob": 0.7384,
+        "top1_agreement": 0.8125,
+        "n": 16
+      },
+      "cgan_ms_per_image": 5.69,
+      "vae_ms_per_image": 0.29
+    },
+    {
+      "class_id": 3,
+      "category": "Dress",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2551,
+        "mean_class_match_prob": 0.3356,
+        "top1_agreement": 0.4375,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2762,
+        "mean_class_match_prob": 0.4081,
+        "top1_agreement": 0.625,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.48,
+      "vae_ms_per_image": 0.58
+    },
+    {
+      "class_id": 4,
+      "category": "Coat",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2711,
+        "mean_class_match_prob": 0.1835,
+        "top1_agreement": 0.125,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2753,
+        "mean_class_match_prob": 0.1916,
+        "top1_agreement": 0.125,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.38,
+      "vae_ms_per_image": 0.28
+    },
+    {
+      "class_id": 5,
+      "category": "Sandal",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2271,
+        "mean_class_match_prob": 0.2109,
+        "top1_agreement": 0.4375,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2498,
+        "mean_class_match_prob": 0.1276,
+        "top1_agreement": 0.0,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.4,
+      "vae_ms_per_image": 0.33
+    },
+    {
+      "class_id": 6,
+      "category": "Shirt",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2476,
+        "mean_class_match_prob": 0.0494,
+        "top1_agreement": 0.0,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2646,
+        "mean_class_match_prob": 0.0567,
+        "top1_agreement": 0.0625,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.37,
+      "vae_ms_per_image": 0.52
+    },
+    {
+      "class_id": 7,
+      "category": "Sneaker",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2629,
+        "mean_class_match_prob": 0.6715,
+        "top1_agreement": 0.875,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2797,
+        "mean_class_match_prob": 0.7344,
+        "top1_agreement": 0.875,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.23,
+      "vae_ms_per_image": 0.45
+    },
+    {
+      "class_id": 8,
+      "category": "Bag",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2441,
+        "mean_class_match_prob": 0.2213,
+        "top1_agreement": 0.1875,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2616,
+        "mean_class_match_prob": 0.385,
+        "top1_agreement": 0.5,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.43,
+      "vae_ms_per_image": 0.25
+    },
+    {
+      "class_id": 9,
+      "category": "Ankle boot",
+      "n_images": 16,
+      "cgan": {
+        "mean_similarity": 0.2757,
+        "mean_class_match_prob": 0.6376,
+        "top1_agreement": 0.9375,
+        "n": 16
+      },
+      "vae": {
+        "mean_similarity": 0.2903,
+        "mean_class_match_prob": 0.6166,
+        "top1_agreement": 0.75,
+        "n": 16
+      },
+      "cgan_ms_per_image": 0.33,
+      "vae_ms_per_image": 0.47
+    }
+  ],
+  "failures": [
+    {
+      "prompt": "Make four t-shirts",
+      "reason": "CLIP top-1 agrees for only 25% of cGAN images"
+    },
+    {
+      "prompt": "I need three coats",
+      "reason": "CLIP top-1 agrees for only 0% of cGAN images"
+    },
+    {
+      "prompt": "Create three sandals",
+      "reason": "CLIP top-1 agrees for only 33% of cGAN images"
+    },
+    {
+      "prompt": "Show me two shirts",
+      "reason": "CLIP top-1 agrees for only 0% of cGAN images"
+    }
+  ],
+  "weakest_categories": [
+    {
+      "category": "Sandal",
+      "cgan_mean_similarity": 0.2271
+    },
+    {
+      "category": "Bag",
+      "cgan_mean_similarity": 0.2441
+    },
+    {
+      "category": "Shirt",
+      "cgan_mean_similarity": 0.2476
+    }
+  ],
+  "totals": {
+    "images_evaluated": 384,
+    "cgan_mean_similarity": 0.2643,
+    "vae_mean_similarity": 0.2774,
+    "cgan_mean_ms_per_image": 0.9,
+    "vae_mean_ms_per_image": 0.42
+  }
+}
